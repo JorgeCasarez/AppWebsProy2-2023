@@ -45,6 +45,7 @@ const QuioscoProvider = ({children})=>{
             const pedidoActualizado = pedido.map(productoState => productoState.id === producto.id? producto : productoState);
             
             setPedido(pedidoActualizado);
+            
         }else{
             setPedido([...pedido, producto])
         }
