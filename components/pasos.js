@@ -13,10 +13,17 @@ const Pasos = () => {
     const router = useRouter();
 
     const calcularProgreso = () => {
-        const porcentaje = (paso /3) * 100;
-        return porcentaje;
+        let valor;
+        if (router.pathname === '/') {
+            valor = 2;
+        } else if(router.pathname === '/resumen') {
+            valor = 50;
+        } else if(router.pathname === '/total') {
+            valor = 100;
+        }
+        return valor;
     }
-  return (
+    return (
     <>
     <div className="flex justify-between">
         {
