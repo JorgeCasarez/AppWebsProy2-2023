@@ -11,6 +11,11 @@ const QuioscoProvider = ({children})=>{
     const [producto, setProducto] = useState({})
     const [modal, setModal] = useState(false)
     const [pedido, setPedido] = useState([])
+    const [paso, setPaso] = useState(1);
+
+    const handleChangePaso = (paso) => {
+        setPaso(paso);
+    }
 
     const handleChangeModal = () => {
         setModal(!modal)

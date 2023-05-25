@@ -1,4 +1,5 @@
 import { useRouter } from "next/router"
+import useQuiosco from "../hooks/useQuiosco";
 
 const pasos = [
     {paso:1, nombre: 'Menu', url: '/'},
@@ -8,6 +9,7 @@ const pasos = [
 
 
 const Pasos = () => {
+    const {handleChangePaso} = useQuiosco();
     const router = useRouter();
   return (
     <div className="flex justify-between">
