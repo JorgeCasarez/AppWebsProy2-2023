@@ -71,7 +71,9 @@ const QuioscoProvider = ({children})=>{
                     handleChangeModal,
                     producto,
                     handleAgregarPedido,
-                    pedido
+                    pedido,
+                    handleChangePaso,
+                    paso
                 }
             }
         >
