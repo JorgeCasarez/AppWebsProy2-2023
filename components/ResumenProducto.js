@@ -4,7 +4,7 @@ import useQuiosco from "../hooks/useQuiosco"
 
 const ResumenProducto = ({ producto }) => {
 
-  const{handleEditarCantidades, handleEliminar} = useQuiosco();
+  const{handleEditarCantidades, handleEliminarProducto} = useQuiosco();
 
   return (
     <div className=" shadow p-5 mb-3 flex gap-10 items-center">
@@ -62,7 +62,7 @@ const ResumenProducto = ({ producto }) => {
           type="button"
           className="bg-red-700 flex px-5 py-2 text-white rounded-md
           font-bold uppercase shadow-md w-full mt-3"
-          onClick={() => {handleEliminar(producto.id)}}
+          onClick={() => {handleEliminarProducto(producto.id)}}
         >
           <svg xmlns="http://www.w3.org/2000/svg"
             fill="none" viewBox="0 0 24 24"

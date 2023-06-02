@@ -4,6 +4,7 @@ import Categoria from "./Categoria"
 
 const Sidebar = () => {
     const {categorias} = useQuiosco();
+    console.log(categorias)
 
     return (
         <>

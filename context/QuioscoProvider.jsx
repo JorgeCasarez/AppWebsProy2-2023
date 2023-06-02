@@ -14,6 +14,7 @@ const QuioscoProvider = ({children}) => {
     const [pedido, setPedido] = useState([])
     const [nombre, setNombre] = useState('')
     const [total, setTotal] = useState(0)
+    const [orden, setOrden] = useState([]);
 
 
     const router = useRouter()
@@ -24,6 +25,14 @@ const QuioscoProvider = ({children}) => {
     }
     useEffect(() => {
         obtenerCategorias()
+    }, [])
+
+    const obtenerOrden = async () => {
+        const { data } = await axios('/api/getOrdenes')
+        setOrden(data)
+    }
+    useEffect(() => {
+        obtenerOrden()
     }, [])
 
     useEffect(() => {
@@ -77,6 +86,19 @@ const QuioscoProvider = ({children}) => {
         setPedido(pedidoActualizado)
     }
 
+    const handleEliminarOrden = async (id)  => {
+
+        try {
+            await axios.post('/api/deleteOrden', {id})
+        } catch (error) {
+            console.log(error)
+        }
+        const ordenActualizada = orden.filter( orden => orden.id !== id)
+        setOrden(ordenActualizada)
+    }
+
+    
+
     const colocarOrden = async (e) => {
         e.preventDefault();
 
@@ -118,7 +140,9 @@ const QuioscoProvider = ({children}) => {
                 nombre, 
                 setNombre,
                 colocarOrden,
-                total
+                total,
+                orden,
+                handleEliminarOrden,
             }}
         >
             {children}
